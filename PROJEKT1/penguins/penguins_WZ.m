@@ -142,3 +142,41 @@ figure;
 pie(species_counts);
 title('Proporcje gatunków wszystkich pingwinów', 'FontSize', 20);
 legend(unique(data_table.Species), 'Location', 'eastoutside');
+
+% wykres słupkowy liczby pingwinów z wylągiem 2 jaj wg gatunku
+species = data_table.Species;
+clutch = data_table.ClutchCompletion;
+
+unique_species = unique(species);
+unique_clutch = unique(clutch);
+
+counts = zeros(numel(unique_species), numel(unique_clutch));
+
+for i = 1:numel(unique_species)
+    for j = 1:numel(unique_clutch)
+        counts(i, j) = sum(strcmp(species, unique_species{i}) & strcmp(clutch, unique_clutch{j}));
+    end
+end
+
+disp(counts);
+
+colors = [0.8500 0.3250 0.0980;  % czerwony - Adelie
+          0.9290 0.6940 0.1250;  % żółty - Chinstrap
+          0 0.4470 0.7410];      % niebieski - Gentoo
+figure;
+
+bar(counts, 'stacked');
+
+for i = 1:numel(unique_species)
+    set(gca, 'ColorOrderIndex', i);
+    colormap(colors);
+end
+
+xticks(1:numel(unique_species));
+xticklabels(unique_species);
+xlabel('Gatunek');
+ylabel('Liczba pingwinów');
+legend(unique_clutch, 'Location', 'eastoutside', 'Orientation', 'vertical');
+title('Liczba pingwinów a wyląg 2 jaj wg gatunku', 'FontSize', 20);
+xtickangle(45);
+grid on;
