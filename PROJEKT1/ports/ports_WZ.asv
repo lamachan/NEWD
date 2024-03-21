@@ -287,30 +287,41 @@ ylabel('częstość');
 title('Histogram liczby struktur w portach widocznych', 'FontSize', 20);
 grid on;
 
-% mapa liczby struktur w portach widocznych
+
+% Find ports with structures
+ports_with_structures = structure_counts > 0;
+
+% Extract latitude and longitude for ports with structures
+latitude_with_structures = no_missing_re.LATITUDE(ports_with_structures);
+longitude_with_structures = no_missing_re.LONGITUDE(ports_with_structures);
+
 A = 20; % marker size
-C = structure_counts; % marker color
-geoscatter(no_missing_re.LATITUDE, no_missing_re.LONGITUDE, A, C,'filled');
+C = structure_counts(ports_with_structures); % marker color
+geoscatter(latitude_with_structures, longitude_with_structures, A, C,'filled');
 geobasemap('landcover');
-colormap(flipud(hot(7)));
+colormap(flipud(hot(6)));
 cbh = colorbar;
+cbh.Title.String = "ahasjbsadhbaks";
 cbh.Ruler.Exponent = 0;
-title('Liczba struktur w portach widocznych', 'FontSize', 20);
+cbh.TickLabels = (0)
 
-% wykres słupkowy liczby portów z widoczną daną strukturą
-counts = sum(strcmp(no_missing_re{:, [10:17]}, 'X'));
-[~, most_common_index] = max(counts);
 
-figure;
-bar(counts);
-xlabel('Struktura');
-ylabel('Liczba portów');
-title('Liczba portów z widoczną daną strukturą', 'FontSize', 20);
-xticks(1:length(counts));
-xticklabels({'falochron', 'nabrzeże/molo', 'miejsce do cumowania', 'kanał', 'pochylnia', 'stocznia', 'latarnia morska', 'cothon'});
-grid on;
 
-hold on;
-bar(most_common_index, counts(most_common_index), 'r');
-legend('widoczna', 'najczęściej widoczna');
+
+% % wykres słupkowy liczby portów z widoczną daną strukturą
+% counts = sum(strcmp(no_missing_re{:, [10:17]}, 'X'));
+% [~, most_common_index] = max(counts);
+% 
+% figure;
+% bar(counts);
+% xlabel('Struktura');
+% ylabel('Liczba portów');
+% title('Liczba portów z widoczną daną strukturą', 'FontSize', 20);
+% xticks(1:length(counts));
+% xticklabels({'falochron', 'nabrzeże/molo', 'miejsce do cumowania', 'kanał', 'pochylnia', 'stocznia', 'latarnia morska', 'cothon'});
+% grid on;
+% 
+% hold on;
+% bar(most_common_index, counts(most_common_index), 'r');
+% legend('widoczna', 'najczęściej widoczna');
 
