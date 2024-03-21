@@ -126,3 +126,19 @@ ylabel('Grubość dzioba (mm)');
 legend(unique_species, 'Location', 'best');
 title('Zależność grubości dzioba od długości dzioba wg gatunku', 'FontSize', 20);
 grid on;
+
+% wykres kołowy płci pingwinów
+sex_counts = countcats(categorical(data_table.Sex));
+
+figure;
+pie(sex_counts);
+title('Proporcje płci wszystkich pingwinów', 'FontSize', 20);
+legend({'brak informacji', 'female', 'male'}, 'Location', 'eastoutside');
+
+% wykres kołowy gatunków pingwinów
+species_counts = countcats(categorical(data_table.Species));
+
+figure;
+pie(species_counts);
+title('Proporcje gatunków wszystkich pingwinów', 'FontSize', 20);
+legend(unique(data_table.Species), 'Location', 'eastoutside');

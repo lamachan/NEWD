@@ -295,11 +295,6 @@ grid on;
 % latitude_with_structures = no_missing_re.LATITUDE(ports_with_structures);
 % longitude_with_structures = no_missing_re.LONGITUDE(ports_with_structures);
 
-
-
-
-
-
 % wykres słupkowy liczby portów z widoczną daną strukturą
 counts = sum(strcmp(no_missing_re{:, [10:17]}, 'X'));
 [~, most_common_index] = max(counts);
@@ -310,7 +305,7 @@ xlabel('Struktura');
 ylabel('Liczba portów');
 title('Liczba portów z widoczną daną strukturą', 'FontSize', 20);
 xticks(1:length(counts));
-xticklabels(column_names(10:17));
+xticklabels({'falochron', 'nabrzeże/molo', 'miejsce do cumowania', 'kanał', 'pochylnia', 'stocznia', 'latarnia morska', 'cothon'});
 grid on;
 
 hold on;
