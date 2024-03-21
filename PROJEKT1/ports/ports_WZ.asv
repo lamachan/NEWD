@@ -300,20 +300,24 @@ grid on;
 
 
 
-% wykres słupkowy liczby portów z widoczną daną strukturą
+% Count occurrences of 'X' in each column
 counts = sum(strcmp(no_missing_re{:, [10:17]}, 'X'));
+
+% Find the column with the highest count
 [~, most_common_index] = max(counts);
 
+% Plot the results
 figure;
 bar(counts);
-xlabel('Struktura');
-ylabel('Liczba portów');
-title('Liczba portów z widoczną daną strukturą', 'FontSize', 20);
+xlabel('Struktury');
+ylabel('Liczba portów z widoczną daną strukturą');
+title('Occurences of ''X'' in Each Column');
 xticks(1:length(counts));
 xticklabels(column_names(10:17));
 grid on;
 
+% Highlight the column with the highest count
 hold on;
 bar(most_common_index, counts(most_common_index), 'r');
-legend('widoczna', 'najczęściej widoczna');
+legend('Occurences of ''X''', 'Most Common');
 
