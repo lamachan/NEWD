@@ -135,37 +135,6 @@ dropdown = uicontrol('Style', 'popupmenu', 'String', cellstr(num2str(years)), 'P
 uicontrol('Style', 'pushbutton', 'String', '<', 'Position', [10, 10, 30, 20], 'Callback', {@decreaseYear, dropdown, data_table, @update_plot_bar3});
 uicontrol('Style', 'pushbutton', 'String', '>', 'Position', [90, 10, 30, 20], 'Callback', {@increaseYear, dropdown, data_table, @update_plot_bar3});
 % -------------------------------------------------------------------------
-% Zależność dostępu do elektryczności od gęstości zaludnienia - wykres punktowy
-figure;
-idx = data_table.Year == 2020 & data_table.AccessToElectricity__OfPopulation_ < 100 & ~isnan(data_table.AccessToElectricity__OfPopulation_) & ~isnan(data_table.Density_n_P_Km2_);
-x = data_table.Density_n_P_Km2_(idx);
-y = data_table.AccessToElectricity__OfPopulation_(idx);
-scatter(x, y, 'o', 'filled', 'SizeData', 30);
-xlim([0, max(x)]);
-ylim([0, max(y)]);
-xlabel('Gęstość zaludnienia [osoba/km^2]');
-ylabel('Dostęp do elektryczności');
-title('Zależność dostępu do elektryczności od gęstości zaludnienia', 'FontSize', 20);
-% -------------------------------------------------------------------------
-yearly_means = grpstats(data_table(:, 2:end), 'Year', 'mean');
-
-% Extract years and mean values
-years = yearly_means.Year;
-mean_values = [yearly_means.mean_AccessToElectricity__OfPopulation_, yearly_means.mean_RenewableEnergyShareInTheTotalFinalEnergyConsumption___];
-
-% Plot each yearly mean as a separate line
-figure;
-plot(years, mean_values(:, 1), 'o-', 'DisplayName', 'Dostęp do elektryczności [%]');
-hold on;
-plot(years, mean_values(:, 2), 'o-', 'DisplayName', 'Energia odnawialna [%]');
-hold off;
-xlim([2000, 2019]);
-ylim([0, 100]);
-xlabel('Rok');
-ylabel('Odsetek [%]')
-title('Dostęp do elektryczności i energia odnawialna w latach', 'FontSize', 20);
-legend('Location', 'northeast');
-
 
 
 % -------------------------------------------------------------------------
