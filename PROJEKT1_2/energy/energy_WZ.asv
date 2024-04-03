@@ -41,6 +41,20 @@ data_table = removevars(data_table, columns_to_drop);
 % Latitude - szerokość geograficzna centroidu
 % Longitude - długość geograficzna centroidu
 
+
+% figure(1);
+% x = data_table.gdp_per_capita;
+% y = data_table.Renewable_electricity_generating_capacity_per_capita;
+% scatter(x, y, '.');
+% xlim([0, max(x)]);
+% ylim([0, max(y)]);
+% set(gca, 'XScale', 'log'); % Set x-axis to log scale
+% % set(gca, 'YScale', 'log'); % Set y-axis to log scale
+% xlabel('PKB per capita');
+% ylabel('zdolność wytwórcza elektryczności ze źródeł odnawialnych [per capita]');
+% title('Zależność zdolności wytwórczej elektryczności ze źródeł odnawialnych per capita od PKB per capita');
+
+
 % -------------------------------------------------------------------------
 % Elektryczność z paliw kopalnych vs PKB per capita - wykres bąbelkowy na przestrzeni lat
 figure;
@@ -130,16 +144,20 @@ mean_values = [yearly_means.mean_AccessToElectricity__OfPopulation_, yearly_mean
 
 % Plot each yearly mean as a separate line
 figure;
-plot(years, mean_values(:, 1), 'o-', 'DisplayName', 'Dostęp do elektryczności [%]');
-hold on;
-plot(years, mean_values(:, 2), 'o-', 'DisplayName', 'Energia odnawialna [%]');
-hold off;
+% hold on; % Allow multiple plots on the same axes
+% for i = 1:length(years)
+%     plot(years(i), mean_values(i), 'o'); % Plot a point for each year
+% end
+plot(years, mean_values);
 xlim([2000, 2019]);
 ylim([0, 100]);
+% Add labels and legend
 xlabel('Rok');
-ylabel('Odsetek [%]')
-title('Dostęp do elektryczności i energia odnawialna w latach');
-legend('Location', 'northeast');
+ylabel('Dostęp do elektryczności [%]');
+title('Yearly Mean Access to Electricity');
+legend('paliwa kopalne', 'atom', 'źródła odnawialne', 'Location', 'northeast');
+
+
 
 
 
