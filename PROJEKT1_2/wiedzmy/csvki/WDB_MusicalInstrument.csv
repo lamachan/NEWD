@@ -1,3 +1,4 @@
+MusicalInstrumentRef,MusicalInstrumentSystemId,MusicalInstrumentID,CaseRef,MusicalInstrument_Type,MusicalInstrument_Text,Createdby,Createdate,Lastupdatedby,Lastupdatedon
 MI/JO/1,JO,1,C/EGD/2121,Unspecified,,jhm,2001-06-05 14:56:56,jhm,2001-06-05 14:57:30
 MI/JO/15,JO,15,C/JO/2905,Pipe,,jhm,2001-10-19 13:01:07,jhm,2001-10-19 13:01:09
 MI/JO/2,JO,2,C/JO/2830,Pipe,,jhm,2001-07-10 10:06:41,jhm,2001-07-10 10:06:53

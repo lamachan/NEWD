@@ -1,3 +1,4 @@
+OrdealRef,OrdealSystemId,OrdealID,Trialref,Ordealexists,Ordealdate,Ordealdate_as_date,Ordealtype,Createdby,Createdate,Lastupdatedby,Lastupdatedon
 OD/JO/10,JO,10,T/JO/395,True,7/1661,1661-06-09 00:00:00,Searching,jhm,2001-07-10 12:03:25,jhm,2001-07-10 12:03:34
 OD/JO/100,JO,100,T/JO/901,True,4/1662,1662-03-10 00:00:00,Pricking,jhm,2002-10-08 10:52:17,jhm,2002-10-08 10:52:23
 OD/JO/101,JO,101,T/JO/899,True,4/1662,1662-03-10 00:00:00,Pricking,jhm,2002-10-08 10:54:44,jhm,2002-10-08 10:54:51
