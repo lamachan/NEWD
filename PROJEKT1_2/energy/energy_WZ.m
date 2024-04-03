@@ -51,7 +51,7 @@ xlim([0, max(data_table.gdp_per_capita)]);
 ylim([0, max(data_table.ElectricityFromFossilFuels_TWh_)]);
 xlabel('PKB per capita');
 ylabel('elektryczność wytwarzana z paliw kopalnych [TWh]');
-title('Elektryczność z paliw kopalnych vs PKB per capita w roku 2000', 'FontSize', 20);
+title('Elektryczność z paliw kopalnych vs PKB per capita vs emisja CO2 per capita w roku 2000', 'FontSize', 20);
 
 % Create slider
 slider = uicontrol('Style', 'slider', 'Min', min(data_table.Year), 'Max', max(data_table.Year),...
@@ -93,7 +93,7 @@ idx = data_table.Year == 2000 & ~isnan(data_table.FinancialFlowsToDevelopingCoun
 sorted_data = sortrows(data_table(idx,:), 'FinancialFlowsToDevelopingCountries_US__', 'descend');
 % Select top 20 countries
 top_countries = sorted_data(1:20, :);
-disp(top_countries)
+% disp(top_countries)
 
 bar(top_countries.FinancialFlowsToDevelopingCountries_US__);
 set(gca, 'XTick', 1:20, 'XTickLabel', top_countries.Entity);
@@ -118,7 +118,7 @@ idx = data_table.Year == 2000 & ~isnan(data_table.Value_co2_emissions_kt_by_coun
 sorted_data = sortrows(data_table(idx,:), 'Value_co2_emissions_kt_by_country', 'descend');
 % Select top 20 countries
 top_countries = sorted_data(1:20, :);
-disp(top_countries)
+% disp(top_countries)
 
 bar(top_countries.Value_co2_emissions_kt_by_country);
 set(gca, 'XTick', 1:20, 'XTickLabel', top_countries.Entity);
@@ -147,13 +147,12 @@ xlabel('Gęstość zaludnienia [osoba/km^2]');
 ylabel('Dostęp do elektryczności');
 title('Zależność dostępu do elektryczności od gęstości zaludnienia', 'FontSize', 20);
 % -------------------------------------------------------------------------
+% Dostęp do elektryczności i energia odnawialna na przestrzeni lat
 yearly_means = grpstats(data_table(:, 2:end), 'Year', 'mean');
 
-% Extract years and mean values
 years = yearly_means.Year;
 mean_values = [yearly_means.mean_AccessToElectricity__OfPopulation_, yearly_means.mean_RenewableEnergyShareInTheTotalFinalEnergyConsumption___];
 
-% Plot each yearly mean as a separate line
 figure;
 plot(years, mean_values(:, 1), 'o-', 'DisplayName', 'Dostęp do elektryczności [%]');
 hold on;
@@ -163,11 +162,35 @@ xlim([2000, 2019]);
 ylim([0, 100]);
 xlabel('Rok');
 ylabel('Odsetek [%]')
-title('Dostęp do elektryczności i energia odnawialna w latach', 'FontSize', 20);
+title('Dostęp do elektryczności i energia odnawialna w latach 2000-2019', 'FontSize', 20);
 legend('Location', 'northeast');
+% -------------------------------------------------------------------------
+% Elektryczność na przestrzeni lat
+yearly_means = grpstats(data_table(:, 2:end), 'Year', 'mean');
 
+years = yearly_means.Year;
+mean_values = [yearly_means.mean_ElectricityFromFossilFuels_TWh_, yearly_means.mean_ElectricityFromNuclear_TWh_, yearly_means.mean_ElectricityFromRenewables_TWh_];
 
-
+figure;
+area(years, mean_values, 'LineStyle', 'none');
+xlim([2000, 2020]);
+ylim([0, 1.1 * max(sum(mean_values, 2))]);
+xlabel('Rok');
+ylabel('Elektryczność [TWh]')
+title('Rozkład elektryczności wg źródła w latach 2000-2020', 'FontSize', 20);
+legend('paliwa kopalne', 'atom', 'źródła odnawialne', 'Location', 'northwest');
+% -------------------------------------------------------------------------
+% Zależność dostępu do elektryczności od gęstości zaludnienia - wykres punktowy
+figure;
+idx = data_table.Year == 2020 & data_table.AccessToElectricity__OfPopulation_ < 100 & ~isnan(data_table.AccessToElectricity__OfPopulation_) & ~isnan(data_table.gdp_per_capita);
+x = data_table.gdp_per_capita(idx);
+y = data_table.AccessToElectricity__OfPopulation_(idx);
+scatter(x, y, 'o', 'filled', 'SizeData', 30);
+xlim([0, max(x)]);
+ylim([0, max(y)]);
+xlabel('PKB per capita [$]');
+ylabel('Dostęp do elektryczności');
+title('Zależność dostępu do elektryczności od PKB per capita', 'FontSize', 20);
 % -------------------------------------------------------------------------
 % Callback function to update plot bubble 1
 function update_plot_bubble1(source, ~, data_table)

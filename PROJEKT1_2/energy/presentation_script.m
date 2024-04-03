@@ -51,7 +51,7 @@ xlim([0, max(data_table.gdp_per_capita)]);
 ylim([0, max(data_table.ElectricityFromFossilFuels_TWh_)]);
 xlabel('PKB per capita');
 ylabel('elektryczność wytwarzana z paliw kopalnych [TWh]');
-title('Elektryczność z paliw kopalnych vs PKB per capita w roku 2000', 'FontSize', 20);
+title('Elektryczność z paliw kopalnych vs PKB per capita vs emisja CO2 per capita w roku 2000', 'FontSize', 20);
 
 % Create slider
 slider = uicontrol('Style', 'slider', 'Min', min(data_table.Year), 'Max', max(data_table.Year),...
