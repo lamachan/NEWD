@@ -51,7 +51,7 @@ xlim([0, max(data_table.gdp_per_capita)]);
 ylim([0, max(data_table.ElectricityFromFossilFuels_TWh_)]);
 xlabel('PKB per capita');
 ylabel('elektryczność wytwarzana z paliw kopalnych [TWh]');
-title('Elektryczność z paliw kopalnych vs PKB per capita w roku 2000');
+title('Elektryczność z paliw kopalnych vs PKB per capita w roku 2000', 'FontSize', 20);
 
 % Create slider
 slider = uicontrol('Style', 'slider', 'Min', min(data_table.Year), 'Max', max(data_table.Year),...
@@ -74,7 +74,7 @@ set(gca, 'XTick', 1:20, 'XTickLabel', top_countries.Entity);
 ylim([0, max(data_table.TotalEnergy_TWh_)]);
 xlabel('Kraj');
 ylabel('Elektryczność [TWh]');
-title('Rozkład elektryczności według źródła vs kraj (Top 20) w roku 2000');
+title('Rozkład elektryczności według źródła vs kraj (Top 20) w roku 2000', 'FontSize', 20);
 legend('paliwa kopalne', 'atom', 'źródła odnawialne', 'Location', 'northeast');
 
 % Create dropdown menu for year selection
@@ -100,7 +100,7 @@ set(gca, 'XTick', 1:20, 'XTickLabel', top_countries.Entity);
 ylim([0, max(data_table.FinancialFlowsToDevelopingCountries_US__)]);
 xlabel('Kraj');
 ylabel('Wparcie finansowe [$]');
-title('Wsparcie finansowe dla państw rozwijających się na projekty czystej energii vs kraj (Top 20) w roku 2000');
+title('Wsparcie finansowe dla państw rozwijających się na projekty czystej energii vs kraj (Top 20) w roku 2000', 'FontSize', 20);
 
 % Create dropdown menu for year selection
 years = unique(data_table.Year);
@@ -110,7 +110,31 @@ dropdown = uicontrol('Style', 'popupmenu', 'String', cellstr(num2str(years)), 'P
 uicontrol('Style', 'pushbutton', 'String', '<', 'Position', [10, 10, 30, 20], 'Callback', {@decreaseYear, dropdown, data_table, @update_plot_bar2});
 uicontrol('Style', 'pushbutton', 'String', '>', 'Position', [90, 10, 30, 20], 'Callback', {@increaseYear, dropdown, data_table, @update_plot_bar2});
 % -------------------------------------------------------------------------
+% Emisja CO2 vs kraj (Top 20) na przestrzeni lat
+figure;
+% Initial plot
+idx = data_table.Year == 2000 & ~isnan(data_table.Value_co2_emissions_kt_by_country);
+% Sort data_table based on energy consumption
+sorted_data = sortrows(data_table(idx,:), 'Value_co2_emissions_kt_by_country', 'descend');
+% Select top 20 countries
+top_countries = sorted_data(1:20, :);
+disp(top_countries)
 
+bar(top_countries.Value_co2_emissions_kt_by_country);
+set(gca, 'XTick', 1:20, 'XTickLabel', top_countries.Entity);
+ylim([0, max(data_table.Value_co2_emissions_kt_by_country)]);
+xlabel('Kraj');
+ylabel('Emisja CO2 [kT]');
+title('Emisja CO2 vs kraj (Top 20) w roku 2000', 'FontSize', 20);
+
+% Create dropdown menu for year selection
+years = unique(data_table.Year);
+dropdown = uicontrol('Style', 'popupmenu', 'String', cellstr(num2str(years)), 'Position', [40, 10, 50, 20], 'Callback', {@update_plot_bar3, data_table});
+
+% Create arrow buttons for changing year
+uicontrol('Style', 'pushbutton', 'String', '<', 'Position', [10, 10, 30, 20], 'Callback', {@decreaseYear, dropdown, data_table, @update_plot_bar3});
+uicontrol('Style', 'pushbutton', 'String', '>', 'Position', [90, 10, 30, 20], 'Callback', {@increaseYear, dropdown, data_table, @update_plot_bar3});
+% -------------------------------------------------------------------------
 
 
 % -------------------------------------------------------------------------
@@ -123,7 +147,7 @@ function update_plot_bubble1(source, ~, data_table)
     ylim([0, max(data_table.ElectricityFromFossilFuels_TWh_)]);
     xlabel('PKB per capita');
     ylabel('elektryczność wytwarzana z paliw kopalnych (węgiel, ropa naftowa, gaz ziemny) [TWh]');
-    title('Elektryczność z paliw kopalnych vs PKB per capita w roku ', num2str(year));
+    title('Elektryczność z paliw kopalnych vs PKB per capita w roku ', num2str(year), 'FontSize', 20);
 end
 % -------------------------------------------------------------------------
 % Callback function to update plot bar 1
@@ -143,7 +167,7 @@ function update_plot_bar1(source, ~, data_table)
     ylim([0, max(data_table.TotalEnergy_TWh_)]);
     xlabel('Kraj');
     ylabel('Elektryczność [TWh]');
-    title('Rozkład elektryczności według źródła vs kraj (Top 20) w roku ', num2str(selected_year));
+    title('Rozkład elektryczności według źródła vs kraj (Top 20) w roku ', num2str(selected_year), 'FontSize', 20);
     legend('paliwa kopalne', 'atom', 'źródła odnawialne', 'Location', 'northeast');
 end
 % -------------------------------------------------------------------------
@@ -163,7 +187,26 @@ function update_plot_bar2(source, ~, data_table)
     ylim([0, max(data_table.FinancialFlowsToDevelopingCountries_US__)]);
     xlabel('Kraj');
     ylabel('Wsparcie finansowe [$]');
-    title('Wsparcie finansowe dla państw rozwijających się na projekty czystej energii vs kraj (Top 20) w roku ', num2str(selected_year));
+    title('Wsparcie finansowe dla państw rozwijających się na projekty czystej energii vs kraj (Top 20) w roku ', num2str(selected_year), 'FontSize', 20);
+end
+% -------------------------------------------------------------------------
+% Callback function to update plot bar 3
+function update_plot_bar3(source, ~, data_table)
+    year_idx = get(source, 'Value');  % Get index of selected year
+    selected_year = unique(data_table.Year(year_idx));  % Get selected year
+    idx = data_table.Year == selected_year & ~isnan(data_table.Value_co2_emissions_kt_by_country);
+    % Sort data_table based on energy consumption
+    sorted_data = sortrows(data_table(idx,:), 'Value_co2_emissions_kt_by_country', 'descend');
+    % Select top 20 countries
+    top_countries = sorted_data(1:20, :);
+    % disp(top_countries)
+    
+    bar(top_countries.Value_co2_emissions_kt_by_country);
+    set(gca, 'XTick', 1:20, 'XTickLabel', top_countries.Entity);
+    ylim([0, max(data_table.Value_co2_emissions_kt_by_country)]);
+    xlabel('Kraj');
+    ylabel('Emisja CO2 [kT]');
+    title('Emisja CO2 vs kraj (Top 20) w roku ', num2str(selected_year), 'FontSize', 20);
 end
 % -------------------------------------------------------------------------
 % utility functions for arrows
