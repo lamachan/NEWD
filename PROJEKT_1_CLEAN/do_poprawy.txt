@@ -1,0 +1,3 @@
+do poprawy:
+- ports:
+	- mapa liczby struktur w portach widocznych
