@@ -1,7 +1,3 @@
 do poprawy:
 - ports:
 	- mapa liczby struktur w portach widocznych - poprawa skali kolorów
-- witches:
-	- SP/trial.m (Verdicts, Sentence) - nie działa
-	- SP/Torture.m - poprawa rozmieszczenia podpisów
-	- SP/meetings.m - poprawa legendy (True/False)

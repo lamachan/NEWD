@@ -20,8 +20,8 @@ summary(data_table_RO);
 
 % -------------------------------------------------------------------------
 % Top 20 najczęściej używanych przedmiotów w trakcie rytuałów
-[counts, categories] = groupcounts(data_table_RO.RitualObject_Type);
-countsTable = table(categories, counts, 'VariableNames', {'Category', 'Count'});
+[counts, category] = groupcounts(data_table_RO.RitualObject_Type);
+countsTable = table(category, counts, 'VariableNames', {'Category', 'Count'});
 sortedCountsTable = sortrows(countsTable, 'Count', 'descend');
 top20Counts = sortedCountsTable(1:20, :);
 categoricalX = categorical(top20Counts.Category);
@@ -46,8 +46,8 @@ summary(data_table_MI);
 
 % -------------------------------------------------------------------------
 % Top 20 najczęściej używanych przedmiotów w trakcie rytuałów
-[counts, categories] = groupcounts(data_table_MI.MusicalInstrument_Type);
-countsTable = table(categories, counts, 'VariableNames', {'Category', 'Count'});
+[counts, category] = groupcounts(data_table_MI.MusicalInstrument_Type);
+countsTable = table(category, counts, 'VariableNames', {'Category', 'Count'});
 sortedCountsTable = sortrows(countsTable, 'Count', 'descend');
 sortedCountsTable = sortedCountsTable(1:4, :);
 categoricalX = categorical(sortedCountsTable.Category);
@@ -136,49 +136,88 @@ geoscatter(Latitude, Longitude, 5, 'b', 'filled');
 text(Latitude, Longitude, Settlement, 'Vert','bottom', 'Horiz','center', 'FontSize',10)
 geobasemap('landcover');
 % -------------------------------------------------------------------------
-% % PLIK WDB_Trial.csv
-% % -------------------------------------------------------------------------
-% data = readtable('data/WDB_Trial.csv');
-% 
-% verdictData = data.Verdict;
-% sentenceData = data.Sentence;
-% verdictCounts = countcats(categorical(verdictData));
-% sentenceCounts = countcats(categorical(sentenceData));
-% 
-% % -------------------------------------------------------------------------
-% 
-% figure;
-% 
-% subplot(1, 2, 1);
-% verdictLabels = categories(categorical(verdictData));
-% verdictPie = pie(verdictCounts, verdictLabels);
-% title('Verdict');
-% 
-% subplot(1, 2, 2);
-% sentenceLabels = categories(categorical(sentenceData));
-% sentencePie = pie(sentenceCounts, sentenceLabels);
-% title('Sentence');
-% 
-% for i = 1:numel(verdictLabels)
-%     verdictPieText{i} = sprintf('%s: %.1f%%', verdictLabels{i}, (verdictCounts(i) / sum(verdictCounts)) * 100);
-% end
-% 
-% for i = 1:numel(sentenceLabels)
-%     sentencePieText{i} = sprintf('%s: %.1f%%', sentenceLabels{i}, (sentenceCounts(i) / sum(sentenceCounts)) * 100);
-% end
-% 
-% verdictPieText = flip(verdictPieText);
-% legend(verdictPie(1:2:end), verdictPieText, 'Location', 'eastoutside');
-% legend(sentencePie(1:2:end), sentencePieText, 'Location', 'eastoutside');
-% colormap(jet);
+% PLIK WDB_Trial.csv
+% -------------------------------------------------------------------------
+data = readtable('data/WDB_Trial.csv');
+
+verdictData = data.Verdict;
+sentenceData = data.Sentence;
+
+verdictCounts = countcats(categorical(verdictData));
+sentenceCounts = countcats(categorical(sentenceData));
+
+% -------------------------------------------------------------------------
+% wykres kołowy - werdykt
+figure;
+verdictLabels = categories(categorical(verdictData));
+verdictPie = pie(verdictCounts, verdictLabels);
+title('Verdict', 'FontSize', 20);
+
+for i = 1:numel(verdictLabels)
+    verdictPieText{i} = sprintf('%s: %.1f%%', verdictLabels{i}, (verdictCounts(i) / sum(verdictCounts)) * 100);
+end
+verdictPieHandles = findobj(verdictPie, 'Type', 'patch');
+legend(verdictPieHandles, verdictPieText, 'Location', 'eastoutside');
+
+% -------------------------------------------------------------------------
+% wykres kołowy - kara
+figure;
+sentenceLabels = categories(categorical(sentenceData));
+sentencePie = pie(sentenceCounts, sentenceLabels);
+title('Sentence', 'FontSize', 20);
+
+for i = 1:numel(sentenceLabels)
+    sentencePieText{i} = sprintf('%s: %.1f%%', sentenceLabels{i}, (sentenceCounts(i) / sum(sentenceCounts)) * 100);
+end
+sentencePieHandles = findobj(sentencePie, 'Type', 'patch');
+legend(sentencePieHandles, sentencePieText, 'Location', 'eastoutside');
+
+colormap(jet);
+
+% -------------------------------------------------------------------------
+% PLIK WDB_Torture.csv
+% -------------------------------------------------------------------------
+data = readtable('data/WDB_Torture.csv');
+
+tortureTypes = data.Torturetype;
+validEntries = ~strcmp(tortureTypes, '');
+tortureTypes = tortureTypes(validEntries);
+uniqueTypes = unique(tortureTypes);
+
+% -------------------------------------------------------------------------
+% wykres kołowy - rodzaje tortur
+counts = zeros(size(uniqueTypes));
+for i = 1:length(uniqueTypes)
+    counts(i) = sum(strcmp(tortureTypes, uniqueTypes{i}));
+end
+
+percentages = counts / sum(counts);
+[percentages, idx] = sort(percentages, 'descend');
+uniqueTypes = uniqueTypes(idx);
+counts = counts(idx);
+
+figure;
+hPie = pie(counts, uniqueTypes);
+title('Distribution of Torture Types', 'FontSize', 20);
+
+percentValues = 100*percentages;
+percentValues = round(percentValues,2);
+textObjs = findobj(hPie,'Type','text');
+for i = 1:numel(percentValues)
+    percentStr = sprintf('%s: %.2f%%', uniqueTypes{i}, percentValues(i));
+    textObjs(i).String = percentStr;
+end
 
 % -------------------------------------------------------------------------
 % PLIK WDB_Ordeal.csv
 % -------------------------------------------------------------------------
-data = readtable('csvki/WDB_Ordeal.csv');
+data = readtable('data/WDB_Ordeal.csv');
 
 ordealtype_column = data.Ordealtype;
 unique_ordealtype = unique(ordealtype_column);
+
+% -------------------------------------------------------------------------
+% wykres kołowy - rodzaje testów na wiedźmę
 counts = zeros(size(unique_ordealtype));
 for i = 1:numel(unique_ordealtype)
     counts(i) = sum(strcmp(ordealtype_column, unique_ordealtype{i}));
@@ -190,4 +229,39 @@ percentages = counts / total_count * 100;
 figure;
 pie(percentages);
 legend(unique_ordealtype, 'Location', 'bestoutside');
-title('Distribution of Ordeal Types');
+title('Distribution of Ordeal Types', 'FontSize', 20);
+
+% -------------------------------------------------------------------------
+% PLIK WDB_Case.csv
+% -------------------------------------------------------------------------
+data = readtable('data/WDB_Case.csv');
+
+dancingData = categorical(data.Dancing);
+singingData = categorical(data.Singing);
+foodAndDrinkData = categorical(data.FoodAndDrink);
+witchesMeetingData = categorical(data.WitchesMeeting);
+
+% -------------------------------------------------------------------------
+% wykresy kołowe - aktywności na spotkaniach wiedźm
+createPieChart(dancingData, 'Dancing');
+createPieChart(singingData, 'Singing');
+createPieChart(foodAndDrinkData, 'FoodAndDrink');
+createPieChart(witchesMeetingData, 'Witchesmeeting');
+
+function createPieChart(data, columnName)
+    uniqueValues = categories(data);
+    counts = countcats(data);
+
+    totalValues = sum(counts);
+    percentages = (counts / totalValues) * 100;
+
+    figure;
+    hPie = pie(counts, uniqueValues);
+    title(['Distribution of ' columnName], 'FontSize', 20);
+
+    labels = cellstr(num2str(percentages, '%.2f%%'));
+    textObjs = findobj(hPie, 'Type', 'text');
+    for i = 1:numel(textObjs)
+        textObjs(i).String = strcat(uniqueValues{i}, {' '}, labels{i});
+    end
+end
