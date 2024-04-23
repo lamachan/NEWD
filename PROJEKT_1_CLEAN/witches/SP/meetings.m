@@ -1,3 +1,7 @@
+clc;
+clear;
+close all;
+
 % Load the CSV file
 data = readtable('csvki/WDB_Case.csv');
 

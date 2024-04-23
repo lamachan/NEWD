@@ -1,3 +1,7 @@
+clc;
+clear;
+close all;
+
 % Step 1: Load the CSV file
 data = readtable('csvki/WDB_Torture.csv');
 
