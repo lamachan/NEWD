@@ -1,3 +1,0 @@
-do poprawy:
-- ports:
-	- mapa liczby struktur w portach widocznych - poprawa skali kolorów
