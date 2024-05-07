@@ -1,0 +1,10 @@
+Stopień;Armia austro-węgierska;Armia rosyjska;Armia niemiecka; Armia J. Hallera; Oficerowie z legionów
+Generałowie broni; 1 ;1 ;0 ;1 ;1
+Generałowie dywizji; 10 ;11 ;1 ;0 ;4
+Generałowie brygady; 49 ;54 ;2 ;3 ;7
+Pułkownicy; 175 ;197 ;12 ;9 ;52
+Podpułkownicy; 350; 232 ;43 ;23 ;114
+Majorowie; 665 ;487 ;112 ;54 ;272
+Kapitanowie; 2 164 ;1 456 ;345;151 ;832
+Porucznicy; 4 117 ;3 648 ;1 252 ;1 597 ;3 072
+Podporucznicy; 1 945 ;1 865 ;829 ;431 ;3 459

@@ -1,0 +1,19 @@
+Okręg;Plutony pełne;Plutony szkieletowe;Oficerowie suma;Oficerowie sztabowi;Podchorążowie;Podoficerowie
+Komenda Główna; 54 ;6 ;1 273 ;893 ;411 ;1 060
+Obszar Warszawy; 511 ;692 ;1 540 ;280 ;809 ;9 801
+Warszawa miasto; 647 ;153 ;1 938 ;149 ;2 462 ;10 635
+Lublin; 775 ;73 ;839 ;258 ;476 ;7 256
+Kielce (Radom); 552 ;76 ;808 ;303 ;486 ;7 815
+Kraków; 1 057 ;220 ;1 883 ;677 ;1 082 ;14 872
+Łódź; 707 ;0 ;274 ;29 ;177 ;6 229
+Śląsk; 862 ;117 ;253 ;116 ;153 ;5 895
+Poznań; 5 ;272 ;99 ;49 ;96 ;1 481
+Pomorze; 56 ;181 ;61 ;12 ;4 ;230
+Białystok; 205 ;253 ;390 ;183 ;365 ;7 320
+Wilno; 93 ;27 ;469 ;193 ;188 ;1 666
+Nowogródek; 15 ;107 ;123 ;59 ;220 ;1 022
+Polesie; 61 ;35 ;42 ;25 ;45 ;454
+Wołyń; 0 ;201 ;62 ;62 ;0 ;0
+Lwów; 196 ;184 ;459 ;247 ;321 ;9 154
+Tarnopol; 301 ;20 ;121 ;52 ;139 ;2 303
+Stanisławów; 90 ;16 ;114 ;44 ;72 ;693

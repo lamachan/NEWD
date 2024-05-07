@@ -1,0 +1,14 @@
+Kraj;Województwo;1863-I;1863-II;1863-III;1863-IV;1864-I;1864-II;1864-III,IV
+Królestwo Polskie;Kaliskie;  22; 35 ;29 ;24 ;16 ;4 ;1
+Królestwo Polskie;Płockie; 31; 27 ;28 ;11 ;6 ;3 ;0
+Królestwo Polskie;Mazowieckie; 31 ;30 ;56 ;26  ;9 ;3 ;0
+Królestwo Polskie;Sandomierskie;  17 ;33 ;13 ;18  ;37 ;12 ;0
+Królestwo Polskie;Krakowskie; 21 ;14 ;24 ;14 ; 23 ;5 ;0
+Królestwo Polskie;Lubelskie; 28 ;12 ;20 ;41  ;33 ;11 ;0
+Królestwo Polskie;Podlaskie; 35 ;17 ;14 ;20  ;9 ;4 ;1
+Królestwo Polskie;Augustowskie; 13 ;19 ;33 ;8  ;4 ;10 ;0
+Litwa;Kowieńskie;  4; 35 ;33 ;19  ;7 ;0; 1
+Litwa;Grodzieńskie;  12 ;31 ;19; 2  ;1 ;0 ;0
+Litwa;Wileńskie; 7 ;28 ;11 ;2  ;0; 1 ;0
+Litwa;Inne; 1; 16 ;7 ;0;  0; 0; 0
+Ruś;; 0 ;29 ;2 ;3 ;1 ;0 ;0

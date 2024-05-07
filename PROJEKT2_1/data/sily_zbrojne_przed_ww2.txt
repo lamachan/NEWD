@@ -1,0 +1,10 @@
+Rodzaj;Stopień;Stan 01.02.1936; Stan 01.01.1938; Stan 01.01.1939; Stan 01.06.1939
+Żołnierze służby czynnej;oficerowie zawodowi ;16 783 ;17 003 ;17 619 ;17 622
+Żołnierze służby czynnej;podoficerowie zawodowi nadterminowi; 42 422 ;41 851 ;43 626 ;43 327
+Żołnierze służby czynnej;podchorążowie zawodowi i kadeci; 3 304 ;3 264 ;3 772 ;3 678
+Żołnierze służby czynnej;kursanci szkół podoficerskich; 1 541 ;1 934 ;2 072 ;1 888
+Żołnierze służby czynnej;szeregowi służby czynnej; 193 705 ;166 858 ;179 910 ;283 594
+Żołnierze rezerwy;oficerowie (powołani); 748 ;12 ;112 ;3 376
+Żołnierze rezerwy;szeregowi (powołani na ćwiczenia); 20 348 ;436 ;9 267 ;86 253
+Pracownicy cywilni;;8 368 ;8 343 ;8 583 ;8 954
+Konie;;57 114 ;57 638 ;62 176 ;79 166 
