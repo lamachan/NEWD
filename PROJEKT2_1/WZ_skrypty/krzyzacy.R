@@ -1,7 +1,6 @@
 library(ggplot2)
 library(reshape2)
 
-setwd("D:/DOKUMENTY/STUDIA/SEMESTR 6/NEWD/PROJEKT/NEWD/PROJEKT2_1")
 krzyzacy <- read.table("data/krzyzacy.txt", header = TRUE, sep = ';', colClasses = c("character", "numeric", "numeric", "numeric"))
 head(krzyzacy)
 
