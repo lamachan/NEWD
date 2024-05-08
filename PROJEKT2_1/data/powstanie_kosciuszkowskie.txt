@@ -1,4 +1,4 @@
-Miesiące;Żołnierze artylerii i wojsk inżynieryjnej;Żołnierze piechoty;Żołnierze jazdy;Konie
+Miesiące;Żołnierze ogółem;Żołnierze artylerii i wojsk inżynieryjnych;Żołnierze piechoty;Żołnierze jazdy;Konie
 Marzec, kwiecień;24 945; 441 ;13 011 ;11 493 ;10 803
 Maj; 35 524; 1 998 ;21 257 ;12 269 ;10 776
 Czerwiec; 40 509; 2 081; 25 059 ;13 369; 11 326
