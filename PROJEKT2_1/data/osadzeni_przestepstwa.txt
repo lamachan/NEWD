@@ -1,0 +1,8 @@
+Rodzaj przestępstwa;Mężczyźni liczba;Mężczyźni odsetek;Kobiety liczba;Kobiety odsetek
+Kradzież ; 1 762 ;70.3 ;100 ;25.3
+Rabunek; 319 ;12.7 ;0 ;0
+Meliniarstwo i paserstwo ; 168 ;6.8 ;101 ;25.5
+Fałszerstwo, oszustwo, szulerstwo ; 55 ;2.2 ;2 ;0.5
+Nierząd, stręczycielstwo ; 6 ;0.2 ;80 ;20.2
+Wspólnictwo ; 179 ;7.2 ;110 ;27.8
+Inne; 16 ;0.6 ;3 ;0.7 

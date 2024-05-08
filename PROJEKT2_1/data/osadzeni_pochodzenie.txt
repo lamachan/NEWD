@@ -1,0 +1,11 @@
+Płeć;Pochodzenie;Ogółem liczba;Ogółem odsetek;Kraków liczba;Kraków odsetek;Lublin liczba;Lublin odsetek;Poznań liczba;Poznań odsetek
+Mężczyźni;Miejskie; 387; 41.8; 204; 39.1; 49; 33.3; 134; 52.1
+Mężczyźni;Wiejskie; 367; 39.6; 207; 39.7; 74; 50.3; 86; 33.5
+Mężczyźni;Szlachta;  19; 2.1; 8; 1.5; 4; 2.7; 7; 2.7
+Mężczyźni;Żydzi; 150; 16.2; 103; 19.7; 17; 11.6; 30; 11.7
+Mężczyźni;Cyganie; 3; 0.3; 0; 0; 3; 2.0; 0; 0
+Kobiety;Miejskie; 81; 65.3; 12; 44.5; 10; 66.7; 59; 72.0
+Kobiety;Wiejskie; 29; 23.4; 9; 33.3; 3; 20.0; 17; 20.7
+Kobiety;Szlachta ; 4; 3.2; 0; 0; 0; 0; 4; 4.9
+Kobiety;Żydzi ; 9; 7.3; 5; 18.5; 2; 13.3; 2; 2.4
+Kobiety;Cyganie ; 1; 0.8; 1; 3.7; 0; 0; 0; 0

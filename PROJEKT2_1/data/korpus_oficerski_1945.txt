@@ -1,0 +1,17 @@
+Rodzaje broni i służb;Ogółem;Oficerowie Wojska Polskiego;Oficerowie Armii Radzieckiej liczba;Oficerowie Armii Radzieckiej odsetek
+Piechota;7725;6537;1188;15.4
+Kawaleria;662;643;19;2.9
+Artyleria;4930;2017;2913;59.1
+Broń pancerna;2743;1592;1151;42.0
+Marynarka Wojenna;167;148;19;11.4
+Lotnictwo;4247;450;3797;89.4
+Służba inżynieryjno-saperska;1509;661;848;56.2
+Łączność;762;737;1025;58.2
+Służba chemiczna;520;175;345;66.3
+Służba kolejowa;26;15;11;42.3
+Służba zaopatrzenia;5788;3114;2674;46.2
+Służba zdrowia;3814;1984;1830;48.0
+Służba sprawiedliwości;288;258;30;10.4
+Służba administracyjna;1298;1109;189;14.6
+Aparat polityczny;4165;4037;128;3.1
+Korpus Bezpieczeństwa Wewnętrznego (piechota i kawaleria);1215;986;229;18.8
