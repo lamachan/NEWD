@@ -2,7 +2,6 @@ library(shiny)
 library(ggplot2)
 library(tidyr)
 
-# Wczytanie danych
 dane <- read.table(text = "Okreg;Plutony_pelne;Plutony_szkieletowe;Oficerowie_suma;Oficerowie_sztabowi;Podchorazowie;Podoficerowie
 Komenda Glowna; 54 ;6 ;1273 ;893 ;411 ;1060
 Obszar Warszawy; 511 ;692 ;1540 ;280 ;809 ;9801
@@ -23,12 +22,11 @@ Lwow; 196 ;184 ;459 ;247 ;321 ;9154
 Tarnopol; 301 ;20 ;121 ;52 ;139 ;2303
 Stanislawow; 90 ;16 ;114 ;44 ;72 ;693", sep = ";", header = TRUE)
 
-# Nazwy wszystkich kolumn
 wszystkie_kolumny <- colnames(dane)
 
 # UI
 ui <- fluidPage(
-  titlePanel("Interaktywna wizualizacja danych"),
+  titlePanel("Ilość poszczególnych jednostek wojskowych Armii Krajowej w roku 1944"),
   sidebarLayout(
     sidebarPanel(
       selectInput("kolumny", "Wybierz kolumny:", choices = wszystkie_kolumny, selected = wszystkie_kolumny, multiple = TRUE),
@@ -39,7 +37,6 @@ ui <- fluidPage(
     )
   )
 )
-
 # Server
 server <- function(input, output) {
   output$wykres <- renderPlot({
@@ -67,10 +64,15 @@ server <- function(input, output) {
     ggplot(dane_long, aes(x = Okreg, y = Wartosc, fill = Kolumna)) +
       geom_bar(stat = "identity", position = "dodge") +
       labs(title = "Countplot dla wybranych kolumn", x = "Okreg", y = "Wartosc") +
-      theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 12), # zmiana rozmiaru czcionki na podpisach osi x
+            axis.text.y = element_text(size = 12), # zmiana rozmiaru czcionki na podpisach osi y
+            axis.title = element_text(size = 14), # zmiana rozmiaru czcionki na podpisach osi x i y
+            legend.text = element_text(size = 12)) + # zmiana rozmiaru czcionki w legendzie
       coord_cartesian(ylim = c(0, max(dane_long$Wartosc) * 1.2)) # powiększenie osi y
   })
 }
+
+
 
 # Uruchomienie aplikacji
 shinyApp(ui = ui, server = server)

@@ -19,7 +19,7 @@ wszystkie_kolumny <- colnames(dane)
 
 # UI
 ui <- fluidPage(
-  titlePanel("Interaktywna wizualizacja danych"),
+  titlePanel("Liczba oficerów w roku 1921"),
   sidebarLayout(
     sidebarPanel(
       selectInput("kolumny", "Wybierz kolumny:", choices = wszystkie_kolumny, selected = wszystkie_kolumny, multiple = TRUE),
@@ -58,10 +58,14 @@ server <- function(input, output) {
     ggplot(dane_long, aes(x = Stopien, y = Wartosc, fill = Kolumna)) +
       geom_bar(stat = "identity", position = "dodge") +
       labs(title = "Countplot dla wybranych kolumn", x = "Stopień", y = "Wartość") +
-      theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 12), # zmiana rozmiaru czcionki na podpisach osi x
+            axis.text.y = element_text(size = 12), # zmiana rozmiaru czcionki na podpisach osi y
+            axis.title = element_text(size = 14), # zmiana rozmiaru czcionki na podpisach osi x i y
+            legend.text = element_text(size = 12)) + # zmiana rozmiaru czcionki w legendzie
       coord_cartesian(ylim = c(0, max(dane_long$Wartosc) * 1.2)) # powiększenie osi y
   })
 }
+
 
 # Uruchomienie aplikacji
 shinyApp(ui = ui, server = server)

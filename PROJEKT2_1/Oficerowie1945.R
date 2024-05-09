@@ -2,7 +2,6 @@ library(shiny)
 library(ggplot2)
 library(tidyr)
 
-# Wczytanie danych
 dane <- read.table(text = "Rodzaje_broni_i_sluzb;Ogolem;Oficerowie_Wojska_Polskiego;Oficerowie_Armii_Radzieckiej_liczba;Oficerowie_Armii_Radzieckiej_odsetek
 Piechota;7725;6537;1188;15.4
 Kawaleria;662;643;19;2.9
@@ -26,7 +25,7 @@ wszystkie_kolumny <- colnames(dane)
 
 # UI
 ui <- fluidPage(
-  titlePanel("Interaktywna wizualizacja danych"),
+  titlePanel("Liczba i rozkład oficerów w roku 1945"),
   sidebarLayout(
     sidebarPanel(
       selectInput("kolumny", "Wybierz kolumny:", choices = wszystkie_kolumny, selected = wszystkie_kolumny, multiple = TRUE),
@@ -65,7 +64,10 @@ server <- function(input, output) {
     ggplot(dane_long, aes(x = Rodzaje_broni_i_sluzb, y = Wartosc, fill = Kolumna)) +
       geom_bar(stat = "identity", position = "dodge") +
       labs(title = "Countplot dla wybranych kolumn", x = "Rodzaje broni i służb", y = "Wartość") +
-      theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 12), # zmiana rozmiaru czcionki na podpisach osi x
+            axis.text.y = element_text(size = 12), # zmiana rozmiaru czcionki na podpisach osi y
+            axis.title = element_text(size = 14), # zmiana rozmiaru czcionki na podpisach osi x i y
+            legend.text = element_text(size = 12)) + # zmiana rozmiaru czcionki w legendzie
       coord_cartesian(ylim = c(0, max(dane_long$Wartosc) * 1.2)) # powiększenie osi y
   })
 }

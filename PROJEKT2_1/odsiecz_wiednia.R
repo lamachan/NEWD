@@ -12,8 +12,11 @@ dane <- data.frame(
 # Wykres
 ggplot(dane, aes(x = Rodzaj, y = Liczba_żołnierzy, fill = Rodzaj)) +
   geom_bar(stat = "identity") +
-  labs(title = "Liczba żołnierzy w różnych rodzajach jednostek",
+  labs(title = "Liczba żołnierzy w czasie odsieczy wiedeńskiej",
        x = "Rodzaj",
        y = "Liczba żołnierzy") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 12), # zmiana rozmiaru czcionki na podpisach osi x
+        axis.text.y = element_text(size = 12), # zmiana rozmiaru czcionki na podpisach osi y
+        axis.title = element_text(size = 14)) + # zmiana rozmiaru czcionki na podpisach osi x i y
   scale_fill_brewer(palette = "Set3")
+
