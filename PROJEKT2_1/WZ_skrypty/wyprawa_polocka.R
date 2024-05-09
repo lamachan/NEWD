@@ -2,7 +2,7 @@ library(ggplot2)
 library(tidyr)
 
 # Your data
-df <- read.table("data/wyprawa_polocka.txt", header = TRUE, sep = ";", colClasses = c("character", "character", "numeric"))
+df <- read.table("../data/wyprawa_polocka.txt", header = TRUE, sep = ";", colClasses = c("character", "character", "numeric"))
 
 # Reshape data for plotting
 df <- df %>%

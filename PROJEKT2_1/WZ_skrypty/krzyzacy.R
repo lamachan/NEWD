@@ -1,7 +1,7 @@
 library(ggplot2)
 library(reshape2)
 
-krzyzacy <- read.table("data/krzyzacy.txt", header = TRUE, sep = ';', colClasses = c("character", "numeric", "numeric", "numeric"))
+krzyzacy <- read.table("../data/krzyzacy.txt", header = TRUE, sep = ';', colClasses = c("character", "numeric", "numeric", "numeric"))
 head(krzyzacy)
 
 melted_krzyzacy <- melt(krzyzacy, id.vars = "Kwartały", variable.name = "Rodzaj", value.name = "Liczba")
