@@ -3,7 +3,7 @@ library(ggplot2)
 library(tidyr)
 library(dplyr)
 
-dane <- read.table("data/powstanie_styczniowe.txt", header = TRUE, sep = ';', colClasses = c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
+dane <- read.table("../data/powstanie_styczniowe.txt", header = TRUE, sep = ';', colClasses = c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
 head(dane)
 
 # UI
