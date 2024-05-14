@@ -43,8 +43,8 @@ server <- function(input, output) {
       # Plot stacked bar plot
       ggplot(dane_long, aes(x = factor(Kwartał), y = Wartość, fill = Województwo)) +
         geom_bar(stat = "identity") +
-        labs(title = "Liczba jednostek w poszczególnych kwartałach",
-             x = "Kwartał", y = "Liczba jednostek", fill = "Województwo") +
+        labs(title = "Liczba bitew i potyczek w poszczególnych kwartałach",
+             x = "Kwartał", y = "Liczba bitew i potyczek", fill = "Województwo") +
         theme_minimal() +
         theme(legend.position = "bottom",
               axis.text.x = element_text(angle = 45, hjust = 1, size = 12),  # Adjust text size here
@@ -66,8 +66,8 @@ server <- function(input, output) {
       # Plot grouped bar plot
       ggplot(summed_data, aes(x = factor(Kwartał), y = Wartość, fill = Kraj)) +
         geom_bar(stat = "identity", position = position_dodge(width = 0.9)) +
-        labs(title = "Liczba jednostek w poszczególnych kwartałach",
-             x = "Kwartał", y = "Liczba jednostek", fill = "Kraj") +
+        labs(title = "Liczba bitew i potyczek w poszczególnych kwartałach",
+             x = "Kwartał", y = "Liczba bitew i potyczek", fill = "Kraj") +
         theme_minimal() +
         theme(legend.position = "bottom",
               axis.text.x = element_text(angle = 45, hjust = 1, size = 12),  # Adjust text size here
