@@ -1,6 +1,7 @@
 library(dplyr)
 library(leaflet)
 library(leaflet.extras)
+library(htmlwidgets)
 
 # Load the CSV data
 data <- read.csv("../zabka_shops.csv")
@@ -45,5 +46,4 @@ lng_center <- lng_centers[filtered_grid_counts$lng_grid + 1]
 
 m <- addHeatmap(m, lat = lat_center, lng = lng_center, intensity = filtered_grid_counts$point_count, radius = 15, blur = 15, max = 10)
 
-library(htmlwidgets)
 saveWidget(m, "../WZ_wykresy/zabka_per_1km2.html")

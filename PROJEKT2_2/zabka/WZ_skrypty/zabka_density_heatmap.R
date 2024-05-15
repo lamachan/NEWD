@@ -1,6 +1,7 @@
 # Load necessary libraries
 library(plotly)
 library(dplyr)
+library(htmlwidgets)
 
 # Load the CSV data
 data <- read.csv('../zabka_shops.csv')
@@ -16,7 +17,7 @@ fig <- plot_ly(
   lat = ~lat,
   lon = ~lng,
   radius = 10,  # Adjust the radius for the heatmap points
-  colorscale = 'Jet',
+  colorscale = 'Greens',
   opacity = 0.6  # Adjust the opacity of the heatmap points
 ) %>%
   layout(
@@ -25,12 +26,8 @@ fig <- plot_ly(
       center = list(lon = 19, lat = 52),  # Set the center to Poland's approximate coordinates
       zoom = 5  # Adjust the zoom level
     ),
-    title = 'Zabka Shop Density Heatmap',
+    title = 'Żabki w Polsce',
     showlegend = FALSE  # Hide the color scale legend
   )
 
-# Show the interactive heatmap
-fig
-
-library(htmlwidgets)
 saveWidget(fig, "../WZ_wykresy/zabka_shop_density_heatmap.html")
