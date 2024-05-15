@@ -1,0 +1,28 @@
+library(plotly)
+library(GGally)
+library(hrbrthemes)
+
+setwd("C:/Users/alaoc/OneDrive/Dokumenty/Semestr 6/Wizualizacja Danych/Projekt 2. R")
+data <- read.csv("measurements_frogs.csv")
+data <- data[complete.cases(data), ]
+data$Family <- as.factor(data$Family)
+
+p <- data %>%
+  arrange(desc(Family)) %>%
+  ggparcoord(
+    columns = 4:14, groupColumn = 15, order = "anyClass",
+    showPoints = TRUE, 
+    title = "Pomiary wielkości ciała żab",
+    alphaLines = 1
+    ) + 
+  theme_ipsum()+
+  theme(
+    legend.position="Default",
+    legend.text = element_text(size = 14),
+    plot.title = element_text(size = 20),
+    axis.text.x = element_text(size = 14),
+    axis.text.y = element_text(size = 14)
+  ) +
+  xlab("")
+
+ggplotly(p)
