@@ -1,0 +1,19 @@
+Okreg;Plutony_pelne;Plutony_szkieletowe;Oficerowie_suma;Oficerowie_sztabowi;Podchorazowie;Podoficerowie
+Komenda Glowna; 54 ;6 ;1273 ;893 ;411 ;1060
+Obszar Warszawy; 511 ;692 ;1540 ;280 ;809 ;9801
+Warszawa miasto; 647 ;153 ;1938 ;149 ;2462 ;10635
+Lublin; 775 ;73 ;839 ;258 ;476 ;7256
+Kielce (Radom); 552 ;76 ;808 ;303 ;486 ;7815
+Krakow; 1057 ;220 ;1883 ;677 ;1082 ;14872
+Lodz; 707 ;0 ;274 ;29 ;177 ;6229
+Slask; 862 ;117 ;253 ;116 ;153 ;5895
+Poznan; 5 ;272 ;99 ;49 ;96 ;1481
+Pomorze; 56 ;181 ;61 ;12 ;4 ;230
+Bialystok; 205 ;253 ;390 ;183 ;365 ;7320
+Wilno; 93 ;27 ;469 ;193 ;188 ;1666
+Nowogrodek; 15 ;107 ;123 ;59 ;220 ;1022
+Polesie; 61 ;35 ;42 ;25 ;45 ;454
+Wolyn; 0 ;201 ;62 ;62 ;0 ;0
+Lwow; 196 ;184 ;459 ;247 ;321 ;9154
+Tarnopol; 301 ;20 ;121 ;52 ;139 ;2303
+Stanislawow; 90 ;16 ;114 ;44 ;72 ;693

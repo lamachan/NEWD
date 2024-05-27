@@ -1,0 +1,6 @@
+rodzaj wojska;rodzaj oddziału;liczba
+Poczty magnackie i pospolite ruszenie;nieokreślony;24 000
+Wojska Korony;jazda;7 311
+Wojska Korony;piechota;6 528
+Wojska Litwy;jazda;2 530
+Wojska Litwy;piechota;1 445

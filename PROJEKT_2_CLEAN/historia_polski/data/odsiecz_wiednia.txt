@@ -1,0 +1,10 @@
+Rodzaj;Podrodzaj;Liczba jednostek;Liczba żołnierzy
+Jazda chorągwi;husaria;23;2 670
+Jazda chorągwi;arkebuzerzy;3;530
+Jazda chorągwi;pancerni;53;5 100
+Jazda chorągwi;lekka jazda;26;1 900
+Jazda chorągwi;kozacy;1;150
+Dragonia;nieokreślony;7;2 800
+Piechota;nieokreślony;21;7 150
+Węgrzy i janczarzy;nieokreślony;3;500
+Obsługa artylerii;nieokreślony;0;150

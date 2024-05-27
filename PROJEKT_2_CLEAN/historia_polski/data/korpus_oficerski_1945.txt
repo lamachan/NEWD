@@ -1,0 +1,17 @@
+Rodzaje_broni_i_sluzb;Ogolem;Oficerowie_Wojska_Polskiego;Oficerowie_Armii_Radzieckiej
+Piechota;7725;6537;1188
+Kawaleria;662;643;19
+Artyleria;4930;2017;2913
+Bron_pancerna;2743;1592;1151
+Marynarka_Wojenna;167;148;19
+Lotnictwo;4247;450;3797
+Sluzba_inzynieryjno_saperska;1509;661;848
+Lacznosc;762;737;1025
+Sluzba_chemiczna;520;175;345
+Sluzba_kolejowa;26;15;11
+Sluzba_zaopatrzenia;5788;3114;2674
+Sluzba_zdrowia;3814;1984;1830
+Sluzba_sprawiedliwosci;288;258;30
+Sluzba_administracyjna;1298;1109;189
+Aparat_polityczny;4165;4037;128
+Korpus_Bezpieczenstwa_Wewnetrznego_piechota_i_kawaleria;1215;986;229
