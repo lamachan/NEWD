@@ -1,0 +1,32 @@
+library(plotly)
+library(GGally)
+library(hrbrthemes)
+library(htmlwidgets)
+
+data <- read.csv("measurements_frogs.csv")
+data <- data[complete.cases(data), ]
+data$Family <- as.factor(data$Family)
+custom_order <- c(4,12,13,14,5,6,7,8,9,10,11)
+
+p <- data %>%
+  arrange(desc(Family)) %>%
+  ggparcoord(
+    columns = 4:14, groupColumn = 15, order = custom_order,
+    showPoints = TRUE, 
+    title = "Pomiary wielkości ciała żab",
+    alphaLines = 1,
+    scale = "globalminmax"
+    ) + 
+  theme_ipsum()+
+  theme(
+    legend.position="Default",
+    legend.text = element_text(size = 14),
+    plot.title = element_text(size = 20),
+    axis.text.x = element_text(size = 14),
+    axis.text.y = element_text(size = 14)
+  ) +
+  xlab("")
+
+plotly_plot <- ggplotly(p)
+
+saveWidget(plotly_plot, "./dynamic_graphs/frogs_parallel_plot.html")
