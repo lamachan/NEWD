@@ -112,14 +112,14 @@ south_data <- province_month_battle_counts %>%
 
 north_plot <- ggplot(north_data, aes(x = factor(month), y = count)) +
   geom_bar(stat = "identity", fill = "navy", color = "black") +
-  labs(title = "Bitwy w poszczególnych miesiącah - północ",
+  labs(title = "Bitwy w poszczególnych miesiącach - północ",
        x = "Miesiąc",
        y = "Liczba bitew") +
   theme_minimal()
 
 south_plot <- ggplot(south_data, aes(x = factor(month), y = count)) +
   geom_bar(stat = "identity", fill = "orange", color = "black") +
-  labs(title = "Bitwy w poszczególnych miesiącah - południe",
+  labs(title = "Bitwy w poszczególnych miesiącach - południe",
        x = "Miesiąc",
        y = "Liczba bitew") +
   theme_minimal()
