@@ -12,7 +12,7 @@ require(plyr)
 require(stargazer)
 
 # input battle data location below and load Warring-States Japan Battle Data
-data<-read.csv("INPUT HARD DRIVE LOCATION HERE/WarringStatesJapan_battledataV1.csv",encoding="UTF-8")
+data<-read.csv("data/WarringStatesJapan_battledataV1.csv",encoding="UTF-8")
 
 #############################################
 #####   Tables and Figures in Article   #####
@@ -321,7 +321,7 @@ rm(datasideA,datasideB,datasideAB,datainitA,datainitA2)
 ### Table A4: Summary Statistics
 
 # input monadic diffusion data location below and load Warring-States Japan monadic diffusion data
-data2<-read.csv("INPUT HARD DRIVE LOCATION HERE/WarringStatesJapan_diffusiondata_monadic.csv")
+data2<-read.csv("data/WarringStatesJapan_diffusiondata_monadic.csv")
 
 # create summary statistics table
 TableA4<-as.data.frame(c("battle","adjacent_battle","road_battle","neighbors","area","terrain_ruggedness"))
